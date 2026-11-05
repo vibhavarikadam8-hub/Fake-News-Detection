@@ -1,0 +1,17 @@
+{
+    "best_model": "Passive Aggressive",
+    "accuracy": 96.69,
+    "precision": 96.47,
+    "recall": 96.22,
+    "f1_score": 96.35,
+    "confusion_matrix": [
+        [
+            6755,
+            203
+        ],
+        [
+            218,
+            5550
+        ]
+    ]
+}

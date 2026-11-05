@@ -1,0 +1,66 @@
+{
+    "Logistic Regression": {
+        "accuracy": 95.43,
+        "precision": 97.02,
+        "recall": 92.55,
+        "f1_score": 94.73,
+        "dataset_results": {
+            "WELFake": {
+                "accuracy": 96.26,
+                "f1_score": 96.58
+            },
+            "IFND": {
+                "accuracy": 94.5,
+                "f1_score": 90.97
+            }
+        }
+    },
+    "Linear SVM": {
+        "accuracy": 96.04,
+        "precision": 96.93,
+        "recall": 94.06,
+        "f1_score": 95.47,
+        "dataset_results": {
+            "WELFake": {
+                "accuracy": 96.62,
+                "f1_score": 96.9
+            },
+            "IFND": {
+                "accuracy": 95.4,
+                "f1_score": 92.64
+            }
+        }
+    },
+    "Multinomial Naive Bayes": {
+        "accuracy": 90.95,
+        "precision": 91.81,
+        "recall": 87.39,
+        "f1_score": 89.55,
+        "dataset_results": {
+            "WELFake": {
+                "accuracy": 92.63,
+                "f1_score": 93.3
+            },
+            "IFND": {
+                "accuracy": 89.04,
+                "f1_score": 81.77
+            }
+        }
+    },
+    "Passive Aggressive": {
+        "accuracy": 94.77,
+        "precision": 94.25,
+        "recall": 93.93,
+        "f1_score": 94.09,
+        "dataset_results": {
+            "WELFake": {
+                "accuracy": 95.34,
+                "f1_score": 95.73
+            },
+            "IFND": {
+                "accuracy": 94.12,
+                "f1_score": 90.95
+            }
+        }
+    }
+}

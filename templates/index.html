@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TruthLens | Fake News Detection AI</title>
+
+    <meta name="description"
+          content="Analyze news using machine learning and natural language processing.">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <a href="#home" class="logo">
+        <span class="logo-icon">T</span>
+        <span>Truth<span class="purple">Lens</span></span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#analyzer">Analyzer</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <a href="#analyzer" class="nav-button">
+        Try Analyzer <span>↗</span>
+    </a>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero section" id="home">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span class="status-dot"></span>
+            MACHINE LEARNING POWERED DETECTION
+        </div>
+
+        <h1>
+            Don't Just Read News.
+            <span class="gradient-text">Verify It.</span>
+        </h1>
+
+        <p class="hero-description">
+            Analyze news articles using machine learning and
+            natural language processing. Discover patterns
+            associated with fake and real news.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#analyzer" class="primary-button">
+                Analyze News <span>→</span>
+            </a>
+
+            <a href="#about" class="secondary-button">
+                Explore Project
+            </a>
+        </div>
+
+        <div class="hero-features">
+            <div>
+                <span class="feature-icon">✦</span>
+                ML Powered
+            </div>
+
+            <div>
+                <span class="feature-icon">◈</span>
+                NLP Analysis
+            </div>
+
+            <div>
+                <span class="feature-icon">⌁</span>
+                Real-time Prediction
+            </div>
+        </div>
+
+    </div>
+
+    <div class="hero-visual">
+
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="ai-card">
+
+            <div class="ai-card-top">
+                <span class="ai-indicator"></span>
+                AI ANALYSIS ENGINE
+                <span class="ai-menu">•••</span>
+            </div>
+
+            <div class="ai-symbol">✧</div>
+
+            <h3>Intelligent<br>News Analysis</h3>
+
+            <p>Machine Learning + NLP</p>
+
+            <div class="ai-card-footer">
+                <span>MODEL STATUS</span>
+                <span class="online">● READY</span>
+            </div>
+
+        </div>
+
+        <div class="floating-tag tag-one">
+            <span>✦</span> Fake News Detection
+        </div>
+
+        <div class="floating-tag tag-two">
+            <span>✓</span> ML Powered
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATISTICS -->
+<section class="stats-section">
+
+    <div class="stat-card">
+        <div class="stat-icon">◈</div>
+        <div>
+            <h3 id="stat-model">Loading...</h3>
+            <p>Best ML Algorithm</p>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">◎</div>
+        <div>
+            <h3 id="stat-accuracy">--</h3>
+            <p>Test Accuracy</p>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">✧</div>
+        <div>
+            <h3>4</h3>
+            <p>ML Algorithms</p>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">⌁</div>
+        <div>
+            <h3>TF-IDF</h3>
+            <p>Text Vectorization</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- NEWS ANALYZER -->
+<section class="section analyzer-section" id="analyzer">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">INTELLIGENT NEWS ANALYSIS</div>
+
+        <h2>Analyze <span class="gradient-text">Any News</span></h2>
+
+        <p>
+            Paste a news article or headline below.
+            Our trained machine learning model will analyze its text.
+        </p>
+
+    </div>
+
+    <div class="analyzer-card">
+
+        <div class="analyzer-top">
+            <div>
+                <span class="live-dot"></span>
+                <strong>NEWS ANALYZER</strong>
+            </div>
+
+            <span class="powered-label">POWERED BY YOUR ML MODEL</span>
+        </div>
+
+        <label for="newsInput">Enter your news article</label>
+
+        <textarea
+            id="newsInput"
+            placeholder="Paste your news article or headline here...&#10;&#10;Enter enough context for the machine learning model to analyze the text."
+        ></textarea>
+
+        <div class="input-footer">
+            <span id="charCount">0 characters</span>
+            <span>Minimum 20 characters</span>
+        </div>
+
+        <div class="analyzer-actions">
+
+            <button id="analyzeBtn" class="primary-button">
+                <span id="buttonText">Analyze News →</span>
+            </button>
+
+            <button id="clearBtn" class="clear-button">
+                Clear Text
+            </button>
+
+        </div>
+
+        <!-- LOADING -->
+        <div id="loading" class="loading-box hidden">
+
+            <div class="spinner"></div>
+
+            <h3>Analyzing News...</h3>
+
+            <p>Your trained ML model is processing the text.</p>
+
+        </div>
+
+        <!-- RESULT -->
+        <div id="resultBox" class="result-box hidden">
+
+            <div class="result-header">
+
+                <div>
+                    <span class="result-label">PREDICTION RESULT</span>
+
+                    <h2 id="predictionText">--</h2>
+                </div>
+
+                <div id="resultIcon" class="result-icon">✦</div>
+
+            </div>
+
+            <div class="score-section">
+
+                <div class="score-heading">
+                    <span id="scoreLabel">Model Score</span>
+                    <strong id="scoreValue">--</strong>
+                </div>
+
+                <div class="progress-track">
+                    <div id="scoreProgress" class="progress-fill"></div>
+                </div>
+
+                <p id="scoreDescription" class="score-description"></p>
+
+            </div>
+
+            <div class="explanation-section">
+
+                <h4>Important Influential Words</h4>
+
+                <p>
+                    These are some words that influenced the
+                    model's prediction, not proof of factual accuracy.
+                </p>
+
+                <div id="wordList" class="word-list">
+                    No explanation available.
+                </div>
+
+            </div>
+
+            <div class="disclaimer">
+                ⚠ This is an automated text classification result.
+                It does not independently verify the facts in an article.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DASHBOARD -->
+<section class="section dashboard-section" id="dashboard">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">MODEL PERFORMANCE</div>
+
+        <h2>ML Performance <span class="gradient-text">Dashboard</span></h2>
+
+        <p>
+            Actual evaluation results generated during model training.
+        </p>
+
+    </div>
+
+    <div id="metricsStatus" class="dashboard-status">
+        Loading model performance...
+    </div>
+
+    <div class="metrics-grid">
+
+        <div class="metric-card">
+            <p>Accuracy</p>
+            <h2 id="metricAccuracy">--</h2>
+            <span>Test dataset</span>
+        </div>
+
+        <div class="metric-card">
+            <p>Precision</p>
+            <h2 id="metricPrecision">--</h2>
+            <span>Positive predictive value</span>
+        </div>
+
+        <div class="metric-card">
+            <p>Recall</p>
+            <h2 id="metricRecall">--</h2>
+            <span>Positive detection rate</span>
+        </div>
+
+        <div class="metric-card">
+            <p>F1 Score</p>
+            <h2 id="metricF1">--</h2>
+            <span>Harmonic mean</span>
+        </div>
+
+    </div>
+
+    <div class="charts-grid">
+
+        <div class="chart-card">
+
+            <div class="chart-heading">
+                <h3>Algorithm Comparison</h3>
+                <span>Test performance</span>
+            </div>
+
+            <div id="modelComparison" class="comparison-list">
+                Loading algorithm results...
+            </div>
+
+        </div>
+
+        <div class="chart-card">
+
+            <div class="chart-heading">
+                <h3>Confusion Matrix</h3>
+                <span>Best model</span>
+            </div>
+
+            <div class="confusion-container">
+
+                <p class="matrix-caption">
+                    Actual vs Predicted
+                </p>
+
+                <div class="confusion-matrix">
+
+                    <div class="matrix-cell matrix-label"></div>
+                    <div class="matrix-cell matrix-label">Fake</div>
+                    <div class="matrix-cell matrix-label">Real</div>
+
+                    <div class="matrix-cell matrix-label">Fake</div>
+                    <div id="cm00" class="matrix-cell matrix-value">--</div>
+                    <div id="cm01" class="matrix-cell matrix-value">--</div>
+
+                    <div class="matrix-cell matrix-label">Real</div>
+                    <div id="cm10" class="matrix-cell matrix-value">--</div>
+                    <div id="cm11" class="matrix-cell matrix-value">--</div>
+
+                </div>
+
+                <div class="matrix-legend">
+                    <span>Correct predictions: diagonal cells</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="best-model-card">
+
+        <div class="best-model-icon">✧</div>
+
+        <div>
+            <span>SELECTED MACHINE LEARNING MODEL</span>
+            <h3 id="bestModelName">Loading...</h3>
+            <p>Selected using test-set F1-score.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="section about-section" id="about">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">ABOUT THE PROJECT</div>
+
+        <h2>How Does It <span class="gradient-text">Work?</span></h2>
+
+        <p>
+            A machine learning pipeline that analyzes text
+            patterns and classifies news articles.
+        </p>
+
+    </div>
+
+    <div class="steps-grid">
+
+        <div class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon">⌕</div>
+            <h3>Text Input</h3>
+            <p>
+                Users submit a news headline or article
+                for analysis.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon">⚙</div>
+            <h3>NLP Processing</h3>
+            <p>
+                The text is transformed into numerical
+                features using TF-IDF.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon">◈</div>
+            <h3>ML Prediction</h3>
+            <p>
+                The trained classification model
+                analyzes the input features.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">04</div>
+            <div class="step-icon">✓</div>
+            <h3>Final Result</h3>
+            <p>
+                The system returns a fake or real
+                news classification and model score.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <a href="#home" class="logo">
+        <span class="logo-icon">T</span>
+        <span>Truth<span class="purple">Lens</span></span>
+    </a>
+
+    <p>
+        Machine Learning Based Fake News Detection System
+    </p>
+
+    <span>Academic ML Project | Built with Python & Flask</span>
+
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

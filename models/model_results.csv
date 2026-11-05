@@ -1,0 +1,5 @@
+model,accuracy,precision,recall,f1_score,roc_auc
+Passive Aggressive,96.69,96.47,96.22,96.35,0.9952
+Linear SVM,96.65,96.29,96.32,96.31,0.9953
+Logistic Regression,96.12,95.8,95.63,95.71,0.9932
+Multinomial Naive Bayes,90.37,88.26,90.83,89.52,0.9636
